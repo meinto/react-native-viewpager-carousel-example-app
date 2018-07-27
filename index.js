@@ -1,17 +1,29 @@
 /** @format */
 
-import {AppRegistry} from 'react-native';
-import App from './App';
-import {name as appName} from './app.json';
 import { Navigation } from 'react-native-navigation';
+import App from './App';
+import ComponentList from './src/screens/ComponentList'
+import {name as appName} from './app.json';
 
 Navigation.registerComponent(`navigation.RootScreen`, () => App);
+Navigation.registerComponent(`navigation.ComponentList`, () => ComponentList);
 
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
     root: {
-      component: {
-        name: 'navigation.RootScreen'
+      stack: {
+        options: {
+          topBar: {
+            visible: false
+          }
+        },
+        children: [
+          {
+            component: {
+              name: 'navigation.RootScreen'
+            },
+          }
+        ]
       }
     }
   });
