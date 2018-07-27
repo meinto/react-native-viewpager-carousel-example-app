@@ -1,4 +1,4 @@
-import { Navigation } from 'react-native-navigation';
+import { Navigation } from 'react-native-navigation'
 import React, { PureComponent } from 'react'
 import { FlatList, TouchableHighlight, Text } from 'react-native'
 import { screens } from '../config/screen.config'
@@ -21,7 +21,6 @@ export default class ComponentList extends PureComponent {
         return screens[screenKey]
       })
   }
-
   
 
   renderItem = ({ item }) => {
