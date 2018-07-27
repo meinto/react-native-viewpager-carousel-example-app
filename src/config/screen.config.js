@@ -6,6 +6,7 @@ import TabbedPager from '../screens/TabbedPager'
 export const registerComponents = () => {
   Navigation.registerComponent('navigation.ComponentList', () => ComponentList)
   Navigation.registerComponent('navigation.TabbedCarousel', () => TabbedPager)
+  Navigation.registerComponent('navigation.BottomTabbedCarousel', () => TabbedPager)
   Navigation.registerComponent('navigation.TabbedPager', () => TabbedPager)
 }
 
@@ -34,8 +35,22 @@ export const screens = {
       },
       id: 'navigation.TabbedCarousel',
       name: 'navigation.TabbedCarousel',
+      isListElement: true,
+    },
+  },
+  BottomTabbedCarousel: {
+    component: {
+      options: {
+        topBar: {
+          title: {
+            text: 'Bottom Tabbed Carousel',
+          },
+        },
+      },
+      id: 'navigation.BottomTabbedCarousel',
+      name: 'navigation.BottomTabbedCarousel',
       passProps: {
-        renderAsCarousel: true,
+        tabContainerPosition: 'bottom',
       },
       isListElement: true,
     },
