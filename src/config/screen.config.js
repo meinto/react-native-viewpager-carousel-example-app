@@ -8,6 +8,7 @@ export const registerComponents = () => {
   Navigation.registerComponent('navigation.TabbedCarousel', () => TabbedPager)
   Navigation.registerComponent('navigation.BottomTabbedCarousel', () => TabbedPager)
   Navigation.registerComponent('navigation.TabbedPager', () => TabbedPager)
+  Navigation.registerComponent('navigation.TabIndicatorColor', () => TabbedPager)
 }
 
 export const screens = {
@@ -51,6 +52,23 @@ export const screens = {
       name: 'navigation.BottomTabbedCarousel',
       passProps: {
         tabContainerPosition: 'bottom',
+      },
+      isListElement: true,
+    },
+  },
+  TabIndicatorColor: {
+    component: {
+      options: {
+        topBar: {
+          title: {
+            text: 'Tab Indicator Color',
+          },
+        },
+      },
+      id: 'navigation.TabIndicatorColor',
+      name: 'navigation.TabIndicatorColor',
+      passProps: {
+        tabIndicatorColor: '#333',
       },
       isListElement: true,
     },

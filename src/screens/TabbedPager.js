@@ -55,6 +55,7 @@ export default class TabbedPagerExample extends PureComponent {
           lazyrenderThreshold={2}
           renderAsCarousel={this.props.renderAsCarousel}
           tabContainerPosition={this.props.tabContainerPosition}
+          tabIndicatorColor={this.props.tabIndicatorColor}
         />
       </View>
     )
