@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, TouchableHighlight } from 'react-native'
 import ExamplePage from './ExamplePage'
 import { TabbedPager } from 'react-native-viewpager-carousel'
 
-export default class ComponentList extends PureComponent {
+export default class TabbedPagerExample extends PureComponent {
   
   constructor(props) {
     super(props)
@@ -53,6 +53,7 @@ export default class ComponentList extends PureComponent {
           renderPage={this._renderPage}
           lazyrender={true}
           lazyrenderThreshold={2}
+          renderAsCarousel={this.props.renderAsCarousel}
         />
       </View>
     )

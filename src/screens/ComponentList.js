@@ -12,6 +12,7 @@ export default class ComponentList extends PureComponent {
   
   constructor(props) {
     super(props)
+    Navigation.events().bindComponent(this)
     this.screens = Object.keys(screens)
       .filter(screenKey => {
         const screen = screens[screenKey]
@@ -39,7 +40,7 @@ export default class ComponentList extends PureComponent {
     return (
       <FlatList
         data={this.screens}
-        keyExtractor={item => this.props.componentId}
+        keyExtractor={item => item.component.id}
         renderItem={this.renderItem}
       />
     )
