@@ -9,11 +9,11 @@
   "dependencies": {
     "react": "16.4.1",
     "react-native": "0.56.0",
-    "react-native-navigation": "^2.0.2431"
+    "react-native-navigation": "2.0.2431"
   },
   "devDependencies": {
     "babel-jest": "23.4.0",
-    "babel-preset-react-native": "^5",
+    "babel-preset-react-native": "5",
     "jest": "23.4.1",
     "react-test-renderer": "16.4.1"
   },
