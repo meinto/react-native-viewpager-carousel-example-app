@@ -8,6 +8,10 @@ const Row = styled.View`
   padding: 20px;
 `
 
+const Hint = styled.Text`
+  color: #aaa;
+`
+
 export default class ComponentList extends PureComponent {
   
   constructor(props) {
@@ -25,12 +29,21 @@ export default class ComponentList extends PureComponent {
   
 
   renderItem = ({ item }) => {
+    const passedProps = item.component.passProps ? item.component.passProps : []
     return (
       <TouchableHighlight
+        underlayColor={'#ccc'}
         onPress={() => Navigation.push(this.props.componentId, item)}
       >
         <Row>
           <Text>{item.component.options.topBar.title.text}</Text>
+          {Object.keys(passedProps).map(key => {
+            return (
+              <Hint key={this.props.componentId + key}>
+                {key}:{'' + passedProps[key]}
+              </Hint>
+            )
+          })}
         </Row>
       </TouchableHighlight>
     )
