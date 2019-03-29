@@ -9,6 +9,7 @@ export const registerComponents = () => {
   Navigation.registerComponent('navigation.BottomTabbedCarousel', () => TabbedPager)
   Navigation.registerComponent('navigation.TabbedPager', () => TabbedPager)
   Navigation.registerComponent('navigation.TabIndicatorColor', () => TabbedPager)
+  Navigation.registerComponent('navigation.TabbedPagerInitialPageCount1', () => TabbedPager)
 }
 
 export const screens = {
@@ -86,6 +87,25 @@ export const screens = {
       name: 'navigation.TabbedPager',
       passProps: {
         renderAsCarousel: false,
+      },
+      isListElement: true,
+    },
+  },
+  TabbedPagerInitialPageCount1: {
+    component: {
+      options: {
+        topBar: {
+          title: {
+            text: 'Tabbed Pager (update pages to 5)',
+          },
+        },
+      },
+      id: 'navigation.TabbedPagerInitialPageCount1',
+      name: 'navigation.TabbedPagerInitialPageCount1',
+      passProps: {
+        renderAsCarousel: false,
+        initialPageCount: 1,
+        actionBarActions: ['updatePages'],
       },
       isListElement: true,
     },

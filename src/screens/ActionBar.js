@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { View, Text, TouchableHighlight } from 'react-native'
+import { View, Text, TouchableHighlight, StyleSheet } from 'react-native'
 
 export default class ActionBar extends PureComponent {
 
@@ -8,11 +8,23 @@ export default class ActionBar extends PureComponent {
       <View>
         {this.props.nextButton && (
           <TouchableHighlight onPress={this.props.nextButtonPress}>
-            <Text>Next</Text>
+            <Text style={styles.btn}>Next</Text>
+          </TouchableHighlight>
+        )}
+
+        {this.props.updatePages && (
+          <TouchableHighlight onPress={this.props.updatePagesPress}>
+            <Text style={styles.btn}>Update pages to 5</Text>
           </TouchableHighlight>
         )}
       </View>
     )
   }
-
 }
+
+const styles = StyleSheet.create({
+  btn: {
+    height: 50,
+    textAlign: 'center',
+  },
+})

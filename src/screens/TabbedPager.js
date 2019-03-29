@@ -9,6 +9,7 @@ export default class TabbedPagerExample extends PureComponent {
   static defaultProps = {
     initialPage: {},
     actionBarActions: [],
+    initialPageCount: 12,
   }
   
   constructor(props) {
@@ -16,16 +17,21 @@ export default class TabbedPagerExample extends PureComponent {
 
     this.state = {
       initialPage: this.props.initialPage,
+      dataSource: this._generatePages(this.props.initialPageCount),
     }
+  }
 
-    this.dataSource = []
+  _generatePages = count => {
+    let dataSource = []
 
-    for (let i = 1; i < 12; i++) {
-      this.dataSource = [...this.dataSource, {
+    for (let i = 1; i < (count + 1); i++) {
+      dataSource = [...dataSource, {
         index: i,
         title: 'Page ' + i,
       }]
     }
+
+    return dataSource
   }
 
   _renderTab = ({data, _pageIndex}) => (
@@ -69,7 +75,7 @@ export default class TabbedPagerExample extends PureComponent {
             this.tabbarPager = tabbarPager
           }}
           experimentalMirroring={false}
-          data={this.dataSource}
+          data={this.state.dataSource}
           thresholdPages={2}
           renderTab={this._renderTab}
           renderPage={this._renderPage}
@@ -93,6 +99,12 @@ export default class TabbedPagerExample extends PureComponent {
         initialPage: {index: this.state.initialPage.index + 1},
       })
     }
+  }
+
+  updatePagesPress = () => {
+    this.setState({
+      dataSource: this._generatePages(5),
+    })
   }
 }
 
