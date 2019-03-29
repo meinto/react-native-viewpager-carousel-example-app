@@ -1,12 +1,22 @@
 import React, { PureComponent } from 'react'
 import { Text, View, StyleSheet, TouchableHighlight } from 'react-native'
 import ExamplePage from './ExamplePage'
+import ActionBar from './ActionBar'
 import { TabbedPager } from 'react-native-viewpager-carousel'
 
 export default class TabbedPagerExample extends PureComponent {
+
+  static defaultProps = {
+    initialPage: {},
+    actionBarActions: [],
+  }
   
   constructor(props) {
     super(props)
+
+    this.state = {
+      initialPage: this.props.initialPage,
+    }
 
     this.dataSource = []
 
@@ -40,6 +50,18 @@ export default class TabbedPagerExample extends PureComponent {
   }
 
   render() {
+
+    const actionBarProps = this.props.actionBarActions.map(action => ({
+      [action]: true,
+      [`${action}Press`]: this[`${action}Press`],
+    }))
+      .reduce((prev, curr) => {
+        return {
+          ...prev,
+          ...curr,
+        }
+      }, {})
+
     return (
       <View style={styles.container}>
         <TabbedPager
@@ -53,12 +75,24 @@ export default class TabbedPagerExample extends PureComponent {
           renderPage={this._renderPage}
           lazyrender={true}
           lazyrenderThreshold={2}
+          initialPage={this.state.initialPage}
           renderAsCarousel={this.props.renderAsCarousel}
           tabContainerPosition={this.props.tabContainerPosition}
           tabIndicatorColor={this.props.tabIndicatorColor}
         />
+        {this.props.actionBarActions && (
+          <ActionBar {...actionBarProps} />
+        )}
       </View>
     )
+  }
+
+  nextButtonPress = () => {
+    if (this.state.initialPage.index) {
+      this.setState({
+        initialPage: {index: this.state.initialPage.index + 1},
+      })
+    }
   }
 }
 
