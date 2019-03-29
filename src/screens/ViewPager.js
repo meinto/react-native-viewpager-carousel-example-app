@@ -55,6 +55,8 @@ export default class ViewPagerExample extends PureComponent {
           ...curr,
         }
       }, {})
+    
+    const { dataSource } = this.state
 
     return (
       <View style={styles.container}>
@@ -64,7 +66,7 @@ export default class ViewPagerExample extends PureComponent {
           }}
           containerStyle={{flex: 1}}
           experimentalMirroring={false}
-          data={this.state.dataSource}
+          data={dataSource}
           thresholdPages={2}
           renderPage={this._renderPage}
           lazyrender={true}

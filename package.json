@@ -13,7 +13,7 @@
     "react": "16.4.1",
     "react-native": "0.56.0",
     "react-native-navigation": "2.0.2431",
-    "react-native-viewpager-carousel": "meinto/react-native-viewpager-carousel#luatnd-master",
+    "react-native-viewpager-carousel": "meinto/react-native-viewpager-carousel",
     "styled-components": "3.3.3"
   },
   "devDependencies": {
