@@ -2,6 +2,7 @@ import { Navigation } from 'react-native-navigation'
 
 import ComponentList from '../screens/ComponentList'
 import TabbedPager from '../screens/TabbedPager'
+import ViewPager from '../screens/ViewPager'
 
 export const registerComponents = () => {
   Navigation.registerComponent('navigation.ComponentList', () => ComponentList)
@@ -10,6 +11,7 @@ export const registerComponents = () => {
   Navigation.registerComponent('navigation.TabbedPager', () => TabbedPager)
   Navigation.registerComponent('navigation.TabIndicatorColor', () => TabbedPager)
   Navigation.registerComponent('navigation.TabbedPagerInitialPageCount1', () => TabbedPager)
+  Navigation.registerComponent('navigation.ViewPagerInitialPageCount1', () => ViewPager)
 }
 
 export const screens = {
@@ -102,6 +104,27 @@ export const screens = {
       },
       id: 'navigation.TabbedPagerInitialPageCount1',
       name: 'navigation.TabbedPagerInitialPageCount1',
+      passProps: {
+        renderAsCarousel: false,
+        initialPageCount: 1,
+        actionBarActions: ['updatePages'],
+      },
+      isListElement: true,
+    },
+  },
+
+
+  ViewPagerInitialPageCount1: {
+    component: {
+      options: {
+        topBar: {
+          title: {
+            text: 'View Pager (update pages to 5)',
+          },
+        },
+      },
+      id: 'navigation.ViewPagerInitialPageCount1',
+      name: 'navigation.ViewPagerInitialPageCount1',
       passProps: {
         renderAsCarousel: false,
         initialPageCount: 1,
