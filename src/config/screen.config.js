@@ -9,6 +9,7 @@ export const registerComponents = () => {
   Navigation.registerComponent('navigation.BottomTabbedCarousel', () => TabbedPager)
   Navigation.registerComponent('navigation.TabbedPager', () => TabbedPager)
   Navigation.registerComponent('navigation.TabIndicatorColor', () => TabbedPager)
+  Navigation.registerComponent('navigation.TabbedPagerInitialPage', () => TabbedPager)
 }
 
 export const screens = {
@@ -86,6 +87,27 @@ export const screens = {
       name: 'navigation.TabbedPager',
       passProps: {
         renderAsCarousel: false,
+      },
+      isListElement: true,
+    },
+  },
+  TabbedPagerInitialPage: {
+    component: {
+      options: {
+        topBar: {
+          title: {
+            text: 'Tabbed Pager (initial page 3)',
+          },
+        },
+      },
+      id: 'navigation.TabbedPagerInitialPage',
+      name: 'navigation.TabbedPagerInitialPage',
+      passProps: {
+        renderAsCarousel: false,
+        initialPage: {index: 1},
+        actionBarActions: [
+          'nextButton',
+        ],
       },
       isListElement: true,
     },
